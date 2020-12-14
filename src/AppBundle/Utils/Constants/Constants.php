@@ -6,7 +6,7 @@ class Constants
 {
 
 	const ACTIVE = 1;
-	const ZOHO_CREATE_TICKET_URL = 'https://desk.zoho.com/api/v1/tickets';
+	const ZOHO_CREATE_TICKET_URL = 'https://desk.zoho.in/api/v1/tickets';
 	const METHOD_POST = 'POST';
 	const METHOD_GET = 'GET';
 

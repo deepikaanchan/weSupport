@@ -17,7 +17,6 @@ class DefaultController extends Controller
      */
     public function indexAction(Request $request)
     {
-        // replace this example code with whatever you need
         return $this->render('Security/login.html.twig');
     }
 
@@ -67,5 +66,13 @@ class DefaultController extends Controller
             }
         }
        
+    }
+
+    /**
+     * @Route("/logout", name="logout")
+     */
+    public function logoutAction(Request $request)
+    {
+        return $this->render('Security/login.html.twig');
     }
 }

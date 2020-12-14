@@ -45,35 +45,30 @@ class CurlService {
     public function curlGetAction($params) {
           try {
             $ch = curl_init();
-            if (isset($params['auth']) && !empty($params['auth'])) {
-                curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
-                curl_setopt($ch, CURLOPT_USERPWD, $params['auth']);
-            }
-            $queryString = '';  // GET Params
-            curl_setopt($ch, CURLOPT_URL, $params['url'].$queryString);
+            curl_setopt($ch, CURLOPT_URL, $params['url']);
+            curl_setopt($ch, CURLOPT_HTTPHEADER, $params['headers']);
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        
             $result = curl_exec($ch);
         } catch (\Exception $e) {
+            dump($e->getMessage());die;
             return false;
         }
+        $result = json_decode($result,true);
         return $result;
     }
 
     public function curlPostAction($params, $apiRequest) {
+
         try {
             $ch = curl_init();
-            if (isset($params['auth']) && !empty($params['auth'])) {
-                curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
-                curl_setopt($ch, CURLOPT_USERPWD, $params['auth']);
-            }
             curl_setopt($ch, CURLOPT_URL, $params['url']);
             curl_setopt($ch, CURLOPT_POST, true);
-        //    curl_setopt($ch, CURLOPT_HTTPHEADER, $params['headers']);
+            curl_setopt($ch, CURLOPT_HTTPHEADER, $params['headers']);
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
             curl_setopt($ch, CURLOPT_POSTFIELDS, $apiRequest);
             $result = curl_exec($ch);
         } catch (\Exception $e) {
+            dump($e->getMessage());die;
             return false;
         }
         return $result;

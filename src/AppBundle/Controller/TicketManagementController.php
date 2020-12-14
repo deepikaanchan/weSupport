@@ -27,12 +27,15 @@ class TicketManagementController extends Controller
     	$userObj = $em->getRepository('AppBundle:Users')->findOneByUserName($data['userName']);
         $requestStructure = $this->container->get('curl_service')->parseRequestForHelpDesk($data,$type);
         $requestStructure = json_encode($requestStructure);
-    //    $params['url'] = Constants::ZOHO_CREATE_TICKET_URL;
-    //    $params['auth'] = 
-    //    $curlResult = $this->container->get('curl_service')->curlPostAction($params,$requestStructure);
-        $result = $curlResult = true;  // Will be removed once zoho API is integrated
-        // Save Logs and redirect
-        if($result != false) {
+        $params['url'] = Constants::ZOHO_CREATE_TICKET_URL;
+        $params['headers'][] = "orgId:60001280952"; 
+        $params['headers'][] = "Authorization:9446933330c7f886fbdf16782906a9e0";
+ 		$params['headers'][] = "Content-Type:application/json;";
+        $params['headers'][] = "Accept:application/json";
+        $curlResult = $this->container->get('curl_service')->curlPostAction($params,$requestStructure);
+  
+        // Save Logs and redirect to create ticket page again
+        if($curlResult != false) {
         	$status = Constants::SUCCESS;
         	$this->saveTicketCreationLogs($requestStructure,$status,$curlResult,$userObj);
         	$this->addFlash("notice", ValidationMessages::TICKET_SUCCESS);
@@ -41,7 +44,7 @@ class TicketManagementController extends Controller
         	$status = Constants::ERROR;
         	$this->saveTicketCreationLogs($requestStructure,$status,$curlResult,$userObj);
         	$this->addFlash("error", ValidationMessages::SOMETHING_WENT_WRONG);
-            return $this->render('Security/login.html.twig');
+            return $this->render('ManageTicket/createticket.html.twig',['user' => $userObj]);
         }
     }
 
@@ -64,15 +67,13 @@ class TicketManagementController extends Controller
      */
     public function listTicketAction(Request $request)
     {
-    
-    	$userName = $request->request->get('userName');
-    
-    //    $params['url'] = Constants::ZOHO_CREATE_TICKET_URL;
-    //    $params['auth'] = 
-    //    $curlResult = $this->container->get('curl_service')->curlGetAction($params);
-        $curlResult = true; // Will be removed once zoho API is integrated
-        if($curlResult != false) {
-        	return $this->render('ManageTicket/manageticket.html.twig');
+ 		$params['url'] = Constants::ZOHO_CREATE_TICKET_URL;
+        $params['headers'][] = "orgId:60001280952"; 
+        $params['headers'][] = "Authorization:9446933330c7f886fbdf16782906a9e0";
+ 
+        $curlResult = $this->container->get('curl_service')->curlGetAction($params);
+        if($curlResult) {
+        	return $this->render('ManageTicket/manageticket.html.twig',['masterData' => $curlResult]);
         }
     }
 }

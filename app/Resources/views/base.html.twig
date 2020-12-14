@@ -6,14 +6,15 @@
         <title>
             {% block title %} ZOHO Help Desk {% endblock %}
         </title>
-        <!-- Font -->
-      {#   <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,500,600,700" rel="stylesheet" type="text/css"> #}
         {% block stylesheets %}
             <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
             <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/jquery.dataTables.min.css') }}">
             <link rel="stylesheet" href="{{ asset('assets/css/dataTables.bootstrap.min.css') }}">
             <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/fixedColumns.dataTables.min.css') }}">
-            <link rel="stylesheet" href="{{asset('assets/main.css')}}">
+            <link rel="stylesheet" href="{{asset('assets/css/main.css')}}">
+            <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+            <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+            <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
         {% endblock %}
         {% block preloads %}
         <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
@@ -24,15 +25,36 @@
     {% set routeName = app.request.get('_route') %}
     {% endblock %}
     <body>
-     <div class="login-container">
+        <div class="login-container">
             <div class="row">
-                <div class="col-md-12">
-                   <h1 class="heading">ZOHO Help Desk</h1>
-                </div>
-                <span class="logout"> <a href="{{ path('logout') }}" style = "color: white;float:right">Log Out</a>
+                <span class="btn btn-primary btn btn-info"  style = "color: blue;float:right;margin-top:2em;margin-right:2em"> <a href="{{ path('logout') }}">Log Out</a>
             </div>
-
         </div>
+        <div class="clearfix white-bg">
+            {% for label, messages in app.flashes %}
+                {% for message in messages %}
+                    {% if  label  == 'error' %}
+                        <div class="status-notification-box error">
+                            <div class="status-content">
+                                <span class="status-notification-icon"></span>
+                                <span >
+                                    {{ message }}
+                                </span>
+                            </div>
+                        </div>
+                    {% else %}
+                        <div class="status-notification-box">
+                            <div class="status-content">
+                                <span class="status-notification-icon"></span>
+                                <span>
+                                    {{ message }}
+                                </span>
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            {% endfor %}
+            </div>
      <main>
         {% block body %} 
        
