@@ -1,0 +1,70 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+  <div class="container-fluid tab-holder">
+                <div class="row">
+                    <div class="col-xs-10 content-container ticketlist-container">
+                   
+                        <div class="container dataTables-list-holder table-holder ">
+                            <h4 class="title-table">
+                                Tickets List
+                            </h4>
+                            <table id="viewTicketsTable" class="table-bordered stripe row-border order-column" cellspacing="0">
+                                <thead>
+                                <tr>
+                                    <th>Subject</th>
+                                    <th>Description</th>
+                                    <th>Ticket ID</th>
+                                    <th>Ticket Status</th>
+                                </tr>
+                                </thead>
+
+                                <tbody>
+                                {# {% for data in masterData %} #}
+                                    <tr>
+                                        <td>General Issue</td>
+                                        <td>System down</td>
+                                        <td>102</td>
+                                        <td>Open</td>
+                                    </tr>
+                                {# {% endfor %} #}
+                                </tbody>
+
+                            </table>
+                        </div>
+                        {# {% if paginator is defined and paginator is not empty %}
+                            <div class="container bottom-container"
+                                 style="width: 30%;display: inline-block;float: right;">
+                                <div class="flex pagination-holder">
+                                    <div class="pagination-knp-holder">
+                                        <ul class="list-paginator">
+                                            {{ knp_pagination_render(paginator) }}
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endif %} #}
+                    </div>
+                </div>
+            </div>
+{% endblock %}
+
+{% block javascripts %}
+	{{ parent() }}
+	<script>
+		 $('#viewTicketsTable').removeAttr('width').DataTable({
+                scrollY: "1000px",
+                scrollX: true,
+                scrollCollapse: true,
+                paging: false,
+                order: [[0, "desc"]],
+                'columnDefs': [
+                    {"width": "200px", targets: "_all"}
+                ]
+            });
+
+
+	</script>
+	
+{% endblock %}

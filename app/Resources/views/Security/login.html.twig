@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>ZOHO Help Desk</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,500,600,700" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/main.css') }}">
+    </head>
+    <body>
+        <div>
+            <div>
+                <div class="login-container">
+                    <div class="row menu_header">
+                        <div class="col-md-12">
+                           <h1 class="heading">ZOHO Help Desk</h1>
+                        </div>
+                    </div>
+                   
+                    <div class="form-login-row">
+                         <div class="col-md-12">
+                             <form role="form" action="{{ path('auth_login') }}" method="POST" novalidate autocomplete="off">
+                            <fieldset>
+                                <div class="form-group">
+                                    <div class="input-group input-width">
+                                        <label>Name</label>
+                                        <input class="form-control" placeholder="Name" id="name" name="name"type="text">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="input-group input-width">
+                                        <label>Email</label>
+                                        <input class="form-control" placeholder="Email" id="username" maxlength="255" name="email" type="text">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="input-group input-width">
+                                        <label>Password</label>
+                                        <input class="form-control" placeholder="Password" id="password" name="password" type="password" >
+                                    </div>
+                                </div>
+            
+                                <input type="hidden" name="_csrf_token" value="{{ csrf_token('intention') }}">
+                                <div class="form-group sign-in-button-holder">
+                                     <div>
+                                     {% for label, messages in app.flashes %}
+                                        {% for message in messages %}
+                                            {% set login = 'bar' %}
+                                            <p class="flash-{{ label }} product-error-msg">{{ message }}</p>
+                                        {% endfor %}
+                                    {% endfor %}
+                                    </div>
+                                    <input type="submit" class="btn-login" value="Login">
+                                </div>
+                            </fieldset>
+                            </form>
+                        </div>
+                    </div>
+                    </div>
+                   
+                
+            </div>
+        </div>
+    </body>
+</html>

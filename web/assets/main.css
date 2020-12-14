@@ -1,0 +1,396 @@
+
+html body {
+    height: 100%;
+}
+.form-login-row{
+	 margin-top: 4em;
+	 position: relative;
+	 text-align: -webkit-center;
+	
+}
+.form-login-row label{
+	 float: left;
+}
+
+.btn-login {
+	height: 50px;
+    width: 30%;
+    border-radius: 5px;
+    background-color: #0472b1;
+    color: #ffffff;
+    font-family: "Open Sans";
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 1.08px;
+    line-height: 19px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.form-control{
+	position: relative;
+	height: 40px;
+    width: 100%;
+    border: 1px solid #d8d6da;
+    border-radius: 4px;
+    background-color: #ffffff;
+    border-top-left-radius: 4px !important;
+    border-bottom-left-radius: 4px !important;
+    box-shadow: none;
+
+}
+
+.input-width{
+	max-width:50%;
+}
+
+.login-container {
+	background: brown;
+    width: 100%;
+    margin:0;
+    padding:0;
+}
+
+.heading {
+	color: antiquewhite;
+}
+
+.sub-heading-margin {
+	margin-left: 34em;
+    margin-bottom: 2em;
+}
+
+#selectPriority{
+	width: 247px;
+}
+
+.flash-error {
+    display: block;
+    color: #f00;
+    padding-bottom: 10px;
+    font-size: 12px;
+    padding-left: 16px;
+}
+
+.flash-notice {
+    display: block;
+    color: #009933;
+    padding-bottom: 10px;
+    font-size: 12px;
+}
+
+.ticketlist-container .dataTables-list-holder div.dataTables_wrapper tr.odd td,
+.ticketlist-container .dataTables-list-holder div.dataTables_wrapper tr.even td,
+.ticketlist-container table.dataTable thead th,
+.ticketlist-container table.dataTable thead td {
+    padding: 0 10px;
+}
+
+.ticketlist-container {
+    display: block;
+}
+
+.content-container.ticketlist-container .modalview {
+    padding-top: 25px;
+}
+
+.container.table-holder {
+    padding: 0;
+}
+
+.container.dataTables-list-holder.table-holder {
+    margin-top: 7px;
+}
+
+.content-container .modal-contentview {
+    width: calc(100% - 280px);
+    margin-left: 250px;
+    z-index: 999;
+}
+
+.content-container {
+    border-right: 1px solid #D8D6DA;
+    padding-right: 0px;
+    padding-top: 15px;
+    margin-right: 0px;
+    margin-left: 5px;
+    height: 33px;
+    border: none;
+}
+
+.content-container .modalview {
+    z-index: 999;
+}
+
+.content-container.ticketlist-container .modalview {
+    padding-top: 25px;
+}
+
+.content-container .page-title-holder .flex {
+    height: 52px;
+    box-shadow: 0 2px 21px 0 #D8D6DA;
+    z-index: 99;
+    position: relative;
+    padding: 0;
+}
+
+.content-container {
+    width: calc(100% - 220px);
+    margin-left: 150px;
+    padding: 70px 0 0;
+    margin-top: 10px;
+     height: auto;
+    line-height: 2.7em;
+}
+
+.content-container .modal-contentview {
+    width: calc(100% - 280px);
+    margin-left: 250px;
+}
+
+
+
+.content-container .open-filter .date-range-container.datepicker-container:before {
+    content: '';
+    width: 100%;
+    height: 40px;
+    border-bottom: 2px solid red;
+}
+
+.content-container .modal-contentview {
+    width: 70%;
+    margin: 0 auto;
+    border-radius: 4px;
+    height: 635px;
+}
+
+
+
+
+.dataTables-list-holder table.dataTable thead .sorting_desc:after,
+table.dataTable thead .sorting:after {
+    content: url(../img/assending.svg);
+    width: 8px;
+    height: 8px;
+    bottom: 27px;
+    right: 10px;
+    opacity: 1;
+}
+
+.dataTables-list-holder table.dataTable thead .sorting_asc:after {
+    content: url(../img/assending.svg);
+    width: 8px;
+    height: 8px;
+    bottom: 11px;
+    right: 8px;
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    transform: rotate(180deg);
+    opacity: 1;
+}
+
+.dataTables_wrapper thead {
+    background: #f5f5f5;
+}
+
+.dataTables_wrapper thead tr {
+    height: 50px;
+}
+
+.dataTables_wrapper thead th {
+    font-size: 14px;
+}
+
+table.DTFC_Cloned thead,
+table.DTFC_Cloned tfoot {
+    background: #f5f5f5;
+}
+
+.hide-table {
+    display: none;
+}
+
+.show-table {
+    display: table-row;
+}
+
+.tables-holder.dataTables-list-holder table.dataTable thead th {
+    border-top: 1px solid #d8d6da;
+}
+
+.dataTables-list-holder div.dataTables_wrapper tr.odd td,
+.dataTables-list-holder div.dataTables_wrapper tr.even td,
+table.dataTable thead th,
+table.dataTable thead td {
+    padding: 10px;
+}
+
+.dataTables-list-holder div.dataTables_wrapper .details-table td,
+.dataTables-list-holder div.dataTables_wrapper td {
+    padding: 10px;
+}
+
+.dataTables-list-holder div.dataTables_wrapper tr td {
+    padding: 0;
+}
+
+
+.dataTables-list-holder th,
+.dataTables-list-holder td {
+    white-space: nowrap;
+}
+
+.tracker-list {
+    padding: 0;
+}
+
+.tracker-list.dataTables-list-holder th,
+.tracker-list.dataTables-list-holder td {
+    white-space: normal;
+}
+
+.dataTables-list-holder th:focus,
+.dataTables-list-holder td:focus {
+    outline: none;
+}
+
+.dataTables-list-holder div.dataTables_wrapper {
+    width:100%;
+    max-width: 100%;
+    border: solid 1px #D8D6DA;
+    border-radius: 2px 2px 0 0;
+    margin-bottom: 15px;
+    box-shadow: 0 0px 0px 0 #D8D6DA;
+}
+
+.dataTables-list-holder.SO_list_holder div.dataTables_wrapper {
+    width: 598px;
+}
+
+.dataTables-list-holder.SO_list_holder .dataTables_scrollBody td:first-child,
+.dataTables-list-holder.SO_list_holder th:first-child {
+    text-align: center;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.dataTables-list-holder div.dataTables_wrapper td {
+    max-width: 110px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding-left: 18px;
+    font-size: 13px;
+}
+
+.dataTables-list-holder .DTFC_LeftHeadWrapper {
+    border-radius: 6px 0 0 0;
+}
+
+.dataTables-list-holder .DTFC_RightHeadBlocker {
+    border-radius: 0 6px 0 0;
+}
+
+.dataTables-list-holder table.dataTable.stripe tbody tr.odd,
+.dataTables-list-holder table.dataTable.display tbody tr.odd,
+.dataTables-list-holder table.dataTable.display tbody tr.odd>.sorting_1,
+.dataTables-list-holder table.dataTable.order-column.stripe tbody tr.odd>.sorting_1,
+.dataTables-list-holder table.dataTable.display tbody tr.even>.sorting_1,
+.dataTables-list-holder table.dataTable.order-column.stripe tbody tr.even>.sorting_1,
+.dataTables-list-holder .dataTables_scrollHead {
+    background: #fff;
+}
+
+.dataTables-list-holder .dataTables_scrollHead {
+    border-radius: 6px 6px 0 0;
+}
+
+.dataTables-list-holder a {
+    text-decoration: underline;
+}
+
+.dataTables-list-holder table.dataTable tbody th,
+.dataTables-list-holder table.dataTable tbody td {
+    border-right: solid 1px #D8D6DA;
+}
+
+.dataTables-list-holder table.dataTable thead th {
+    border-right: solid 1px #D8D6DA;
+    border-bottom: solid 1px #D8D6DA;
+}
+
+.dataTables-list-holder .dataTables_scrollHead thead th:last-child,
+.dataTables-list-holder .dataTables_scrollBody tbody tr td:last-child {
+    border-right: 0px;
+}
+
+.dataTables-list-holder .dataTables_filter,
+.dataTables-list-holder .dataTables_info {
+    display: none;
+}
+
+.dataTables-list-holder .dataTables_wrapper.no-footer .dataTables_scrollBody {
+    border: 0px;
+}
+
+.dataTables-list-holder .DTFC_LeftWrapper tbody tr td:last-child,
+.dataTables-list-holder .DTFC_LeftWrapper thead tr th:last-child {
+    border-right: solid 1px #D8D6DA;
+}
+
+.dataTables-list-holder .DTFC_RightWrapper tbody tr td:last-child,
+.dataTables-list-holder .DTFC_RightWrapper thead tr th:last-child {
+    border-left: solid 1px #D8D6DA;
+    border-right: 0px;
+}
+
+.dataTables-list-holder table.dataTable thead .nosort {
+    text-align: left;
+}
+
+.dataTables-list-holder table.dataTable thead tr th:first-child.nosort {
+    text-align: left;
+}
+
+.dataTables-list-holder.modal-body table.dataTable thead tr th:first-child.nosort {
+    text-align: center;
+}
+
+.dataTables-list-holder table.dataTable tbody td.two-sections {
+    padding: 0px;
+    height: 100%;
+}
+
+.dataTables-list-holder table.dataTable tbody td.two-sections span {
+    display: block;
+    width: 50%;
+    float: left;
+    padding: 8px 10px;
+    text-align: center;
+}
+
+.dataTables-list-holder table.dataTable tbody td.two-sections span a {
+    text-decoration: none;
+}
+
+.dataTables-list-holder table.dataTable tbody td.two-sections span:first-child {
+    border-right: solid 1px #D8D6DA;
+}
+
+.dataTables-list-holder table.dataTable thead .leftAlign {
+    text-align: left;
+}
+
+#view_SO_list table.dataTable.display tbody tr.odd>.sorting_1,
+table.dataTable.order-column.stripe tbody tr.odd>.sorting_1 {
+    background: #fff;
+}
+.row-border {
+    border: 2px solid #D8D6DA;
+    height: 35px;
+    margin-left: 14px;
+    margin-right: -10px;
+}
+ table.dataTable {
+    margin: 0px !important;
+}

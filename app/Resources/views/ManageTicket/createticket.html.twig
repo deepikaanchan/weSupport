@@ -1,0 +1,96 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+	<h3 class="display-3">Create Ticket</h3>
+	<div>
+     {% for label, messages in app.flashes %}
+        {% for message in messages %}
+            {% set login = 'bar' %}
+            <p class="flash-{{ label }} product-error-msg">{{ message }}</p>
+        {% endfor %}
+    {% endfor %}
+    </div>
+  	<div class="container-fluid" style="margin-left:15em;">
+  		
+	  	<form role="form" id="createForm" action="{{ path('create_ticket') }}" method="POST" novalidate autocomplete="off">
+			<fieldset>
+			    <div class="col-md-6">
+		        	<h4 class="text-left"> Ticket Details</h4>
+		            <div class="form-group">
+		                <div class="input-group input-width">
+		                    <label>Department</label>
+		                    <input class="form-control" placeholder="Enter Department" id="dept" name="department"type="text">
+		                </div>
+		            </div>
+		            <div class="form-group">
+		                <div class="input-group input-width">
+		                    <label>Category</label>
+		                    <input class="form-control" placeholder="Enter Category" id="cat" name="category" type="text">
+		                </div>
+		            </div>
+		            <div class="form-group">
+		                <div class="input-group input-width">
+		                    <label>Subject</label>
+		                    <input class="form-control" placeholder="Enter Subject" id="sub" name="subject" type="text" >
+		                </div>
+		            </div>
+		            <div class="form-group">
+		                <div class="input-group input-width">
+		                    <label>Description</label>
+		                    <textarea id="w3review" placeholder="Enter Description" name="description" rows="2" cols="50"></textarea>
+		                    {# <input class="form-control"  id="desp" name="description" type="text" > #}
+		                </div>
+		            </div>
+ 					<div class="form-group">
+		                <div class="input-group input-width">
+		                	<label>Priority</label>
+			            	<select class="form-control" id="selectPriority" name="selectedPriority">
+								<option value="0">Select</option>
+								<option value="1">High</option>
+								<option value="2">Medium</option>
+								<option value="3">Low</option>
+							</select>
+						</div>
+					</div>
+		    	</div>
+
+				<div class="col-md-6">
+		            <h4 class="text-left">Contact Details</h4>
+		            <div class="form-group">
+		                <div class="input-group input-width">
+		                    <label>Name</label>
+		                    <input class="form-control" id="name" name="contactName" value ="{{user.name}}" type="text" disabled>
+		                </div>
+		            </div>
+		            <div class="form-group">
+		                <div class="input-group input-width">
+		                    <label>Email</label>
+		                    <input class="form-control" id="email" name="contactEmail" value ="{{user.userName}}" type="text" disabled>
+		                </div>
+		            </div>
+		        </div>
+			    <div class="col-md-12" style="margin-left: 16em;margin-top: 3em;">
+				    <input type="hidden" name="_csrf_token" value="{{ csrf_token('intention') }}">
+				    <input type="hidden" id="userName" name="userName" value ="{{user.userName}}">
+		            <div class="form-group sign-in-button-holder">
+		                <input type="submit" class="btn-login" value="Create Ticket">
+		            </div>
+		            <div class="form-group sign-in-button-holder">
+		                <input type="button" id="manageTicket" class="btn-login" value="Manage Ticket">
+		            </div>
+	            </div>
+			</fieldset>
+		</form>   
+	</div>
+{% endblock %}
+
+{% block javascripts %}
+	{{ parent() }}
+	<script>
+	$('#manageTicket').on('click',function(e){
+		e.preventDefault();
+		$('#createForm').attr('action','listTicket');
+		$('#createForm').submit();
+	});
+	</script>
+{% endblock %}
